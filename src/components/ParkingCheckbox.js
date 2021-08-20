@@ -1,4 +1,4 @@
-const ParkingCheckbox = ({ type, label, handleChange, checked }) => {
+const ParkingCheckbox = ({ type, label, handleChange }) => {
     return (
         <div className="parking-checkbox">
             <input 

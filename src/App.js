@@ -5,7 +5,7 @@ import ParkingForm from "./components/ParkingForm";
 
 const App = () => {
   const [parkingList, setParkingList] = useState([])
-  const [parkingType, setParkingType] = useState(["handicapé"])
+  const [parkingType, setParkingType] = useState([])
 
   useEffect(() => {
     const fetchEvent = async () => {

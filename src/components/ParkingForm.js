@@ -4,8 +4,7 @@ const ParkingForm = ({ handleChange }) => {
     const parkingTypes = [
         {
             type: "handicapé",
-            label: "Place PMR",
-            checked: true
+            label: "Place PMR"
         },
         {
             type: "livraison",
