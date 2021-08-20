@@ -1,24 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import Header from "./components/Header";
+import Map from "./components/Map";
+import ParkingForm from "./components/ParkingForm";
 
-function App() {
+const App = () => {
+  const [parkingList, setParkingList] = useState([])
+  const [parkingType, setParkingType] = useState(["handicapé"])
+
+  useEffect(() => {
+    const fetchEvent = async () => {
+      try {
+        const res = await fetch('http://localhost:5000/api/parking/parkingspecializedplaces')
+        const data = await res.json()
+        const parkingsFiltered = await data.filter(parking => parkingType.includes(parking.properties.PLASPE_TYPE_NOM))
+        setParkingList(parkingsFiltered)
+      } catch (err) {
+        console.error(err)
+      }
+    }
+
+    fetchEvent()
+    
+  }, [parkingType])
+
+  const handleChange = (e) => {
+    const checked = e.target.checked
+    if (checked) {
+      setParkingType([ ...parkingType, e.target.name])
+    } else {
+      setParkingType(parkingType.filter(type => type !== e.target.name))
+    }
+    console.log(parkingType)
+    console.log(e.target.name)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <> 
+      <Header />
+      <main className="main">
+        <ParkingForm 
+          className="parking-form"
+          handleChange={handleChange}
+        />
+        <Map 
+          parkingList={parkingList}
+        /> 
+      </main>      
+    </>
   );
 }
 
