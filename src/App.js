@@ -34,6 +34,10 @@ const App = () => {
     console.log(e.target.name)
   }
 
+  const handleSubmit = (e) => {
+    
+  }
+
   return (
     <> 
       <Header />

@@ -2,7 +2,7 @@ const Header = () => {
     return (
         <header className="header">
             <h1>
-                Grenoble Parkings
+                Places de stationnement de Grenoble Métropole
             </h1>
         </header>
     )

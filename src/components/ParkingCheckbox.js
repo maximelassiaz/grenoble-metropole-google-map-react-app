@@ -1,4 +1,6 @@
-const ParkingCheckbox = ({ type, label, handleChange }) => {
+import { Icon } from "@iconify/react"
+
+const ParkingCheckbox = ({ type, label, icon, handleChange }) => {
     return (
         <div className="parking-checkbox">
             <input 
@@ -10,7 +12,11 @@ const ParkingCheckbox = ({ type, label, handleChange }) => {
             <label 
                 htmlFor={ type }
             >
-                { label }
+                { label } 
+                <Icon 
+                    className="parking-icon"
+                    icon={ icon }
+                />
             </label>
         </div>
     )

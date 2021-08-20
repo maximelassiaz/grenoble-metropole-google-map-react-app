@@ -20,7 +20,7 @@ const Map = ({ center, zoom, parkingList }) => {
                         lng={ parking.geometry.coordinates[0] }
                         iconType={ parking.properties.PLASPE_TYPE_NOM }
                         onClick={() => setParkingInfo({ 
-                            id: parking["_id"],
+                            id: parking.properties.PLASPE_ID,
                             type: parking.properties.PLASPE_TYPE_NOM,
                             num: parking.properties.PLASPE_ADRES_LIBEL,
                             street: parking.properties.PLASPE_VOIE_NOMCOMPL

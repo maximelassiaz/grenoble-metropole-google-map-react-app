@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
   overflow: hidden;
 }
 
@@ -28,16 +29,24 @@ body {
 
 .main {
   display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
 }
 
 .parking-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  width: 200px;
+  width: 300px;
   background-color: rgb(52, 58, 52);
   color: white;
+  flex: 1;
+  padding-left: 10px;
+}
+
+.parking-form label {
+  margin: 5px
 }
 
 .parking-checkbox {
@@ -50,12 +59,17 @@ body {
   border: none;
   background-color: rgb(165, 59, 59);
   color: white;
+  text-align: center;
+  margin: 5px;
+}
+
+.parking-form .parking-icon {
+  margin-left: 5px;
 }
 
 .map {
-  width: 100vw;
   height: 100vh;
-  position: relative;
+  flex: 3;
 }
 
 .parking-icon {
